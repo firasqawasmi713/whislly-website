@@ -32,14 +32,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiryModal }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#030716]/95 backdrop-blur-md border-b border-blue-900/40 py-2.5 shadow-2xl shadow-black/70'
-          : 'bg-transparent py-3.5 border-b border-slate-800/20'
+          ? 'bg-[#030716]/95 backdrop-blur-md border-b border-blue-900/40 py-2 shadow-2xl shadow-black/70'
+          : 'bg-transparent py-3 border-b border-slate-800/20'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Brand Logo Only (Text removed) */}
+          {/* Brand Logo Only (Ultra compact size) */}
           <a
             href="#"
             className="group flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-sm"
@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiryModal }) => {
             <img 
               src="/logo.png" 
               alt={AGENCY_INFO.name} 
-              className="h-7 sm:h-8 w-auto object-contain max-h-8" 
+              className="h-5 sm:h-6 w-auto object-contain max-h-6" 
             />
           </a>
 
