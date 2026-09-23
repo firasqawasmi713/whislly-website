@@ -46,15 +46,21 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
       ? PORTFOLIO_ITEMS
       : PORTFOLIO_ITEMS.filter((item) => item.category === activeFilter);
 
-  // Helper to determine the real image path for each project card
+  // Helper to accurately map real asset paths
   const getProjectImage = (item: PortfolioItem): string => {
+    if (item.category === 'UI/UX' || item.id.includes('wisco') || item.title.toLowerCase().includes('wisco')) {
+      return '/wisco.png';
+    }
     if (item.category === 'Design' || item.id.includes('food') || item.id.includes('photo')) {
       return '/food.png';
     }
     if (item.category === 'Branding' || item.id.includes('rawabi')) {
       return '/rawabi.png';
     }
-    return ASSET_PLACEHOLDERS[item.assetKey] || '/food.png';
+    if (item.category === 'Social Media' || item.id.includes('crust')) {
+      return '/01.png';
+    }
+    return ASSET_PLACEHOLDERS[item.assetKey] || '/wisco.png';
   };
 
   return (
@@ -271,7 +277,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                   </div>
                 </div>
               ) : (
-                /* Uncropped Square Display for Single Media (Food / Rawabi) */
+                /* Uncropped Square Display for Single Media */
                 <div className="rounded-lg overflow-hidden border border-blue-950 aspect-square max-h-[450px] w-full mx-auto bg-[#02050e] flex items-center justify-center p-3 shadow-inner">
                   <img 
                     src={getProjectImage(selectedProject)} 
