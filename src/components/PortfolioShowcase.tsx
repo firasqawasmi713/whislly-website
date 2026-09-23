@@ -3,16 +3,14 @@ import {
   PORTFOLIO_ITEMS,
   PortfolioItem,
   ASSET_PLACEHOLDERS,
-  CrustBurgerPhoto,
 } from '../data/agencyData.ts';
-import { AgencyImage } from './AgencyImage.tsx';
 import { useLanguage } from '../context/LanguageContext.tsx';
 
 interface PortfolioShowcaseProps {
   onRequestSimilarProject: (projectName: string) => void;
 }
 
-// 9-Photo Social Media Grid Images mapping
+// 9-Photo Social Media Grid Images mapping exactly to your filenames
 const SOCIAL_GRID_PHOTOS = [
   { id: '1', src: '/01.png', title: 'Signature Drop', tag: 'Reels Hook' },
   { id: '2', src: '/02.png', title: 'Macro Detail', tag: 'Visual Texture' },
@@ -46,7 +44,6 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
       ? PORTFOLIO_ITEMS
       : PORTFOLIO_ITEMS.filter((item) => item.category === activeFilter);
 
-  // Helper to accurately map real asset paths
   const getProjectImage = (item: PortfolioItem): string => {
     if (item.category === 'UI/UX' || item.id.includes('wisco') || item.title.toLowerCase().includes('wisco')) {
       return '/wisco.png';
@@ -58,7 +55,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
       return '/rawabi.png';
     }
     if (item.category === 'Social Media' || item.id.includes('crust')) {
-      return '/01.png';
+      return '/09.png';
     }
     return ASSET_PLACEHOLDERS[item.assetKey] || '/wisco.png';
   };
@@ -125,22 +122,22 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                         <span className="text-blue-400 font-semibold">
                           9-Photo Social Media Grid Showcase
                         </span>
-                        <span className="text-slate-400 text-[10px]">9 Real Assets</span>
+                        <span className="text-slate-400 text-[10px]">9 Master Assets</span>
                       </div>
                       
                       {/* 3x3 Real Media Grid */}
-                      <div className="grid grid-cols-3 gap-2 aspect-square max-h-80 mx-auto rounded-lg overflow-hidden">
+                      <div className="grid grid-cols-3 gap-2 aspect-square max-h-80 mx-auto rounded-lg overflow-hidden bg-[#02050e] p-1">
                         {SOCIAL_GRID_PHOTOS.map((photo, pIdx) => (
                           <div
                             key={photo.id}
-                            className="relative rounded overflow-hidden bg-slate-900 border border-blue-900/40 group-hover:border-blue-500/50 transition-colors"
+                            className="relative rounded overflow-hidden bg-slate-900 border border-blue-900/40 group-hover:border-blue-500/50 transition-colors flex items-center justify-center"
                           >
                             <img 
                               src={photo.src} 
                               alt={photo.title} 
                               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                             />
-                            <div className="absolute top-1 left-1 bg-black/70 px-1 py-0.5 rounded text-[8px] font-mono text-blue-300">
+                            <div className="absolute top-1 left-1 bg-black/75 px-1 py-0.5 rounded text-[8px] font-mono text-blue-300">
                               0{pIdx + 1}
                             </div>
                           </div>
@@ -220,7 +217,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
             {/* Modal Body */}
             <div className="p-6 overflow-y-auto space-y-6 text-slate-200">
               
-              {/* If Social Media / Crust Burgers: Render 9-photo gallery */}
+              {/* If Social Media / Crust Burgers: Render full 9-photo gallery */}
               {selectedProject.id === 'crust-burgers-9shots' || selectedProject.category === 'Social Media' ? (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
