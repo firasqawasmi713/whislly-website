@@ -111,7 +111,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                 }}
                 className="blue-glow-card group relative bg-[#04091a]/80 border border-slate-800/90 rounded-xl overflow-hidden flex flex-col justify-between hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.35)] transition-all duration-300 cursor-pointer"
               >
-                {/* Visual Media Placeholder or 9-Photo Mini-Grid */}
+                {/* Visual Media Card Preview */}
                 <div className="relative overflow-hidden bg-[#02050f]">
                   {isCrustBurgers ? (
                     <div className="p-3 bg-[#030716] border-b border-blue-900/40">
@@ -123,7 +123,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                       </div>
                       
                       {/* 3x3 Real Media Grid */}
-                      <div className="grid grid-cols-3 gap-2 aspect-[4/3] rounded-lg overflow-hidden">
+                      <div className="grid grid-cols-3 gap-2 aspect-square max-h-80 mx-auto rounded-lg overflow-hidden">
                         {SOCIAL_GRID_PHOTOS.map((photo, pIdx) => (
                           <div
                             key={photo.id}
@@ -142,13 +142,12 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                       </div>
                     </div>
                   ) : (
-                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                    <div className="relative aspect-square max-h-80 w-full overflow-hidden bg-[#02050e] flex items-center justify-center p-3">
                       <img 
                         src={realImagePath} 
                         alt={item.title} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#04091a] via-transparent to-transparent opacity-60" />
                     </div>
                   )}
                 </div>
@@ -215,7 +214,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
             {/* Modal Body */}
             <div className="p-6 overflow-y-auto space-y-6 text-slate-200">
               
-              {/* If Social Media / Crust Burgers: Render full 9-photo gallery */}
+              {/* If Social Media / Crust Burgers: Render 9-photo gallery */}
               {selectedProject.id === 'crust-burgers-9shots' || selectedProject.category === 'Social Media' ? (
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -232,14 +231,14 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                     </span>
                   </div>
 
-                  {/* Active Selected Full Frame */}
-                  <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden border border-blue-500/50 bg-black">
+                  {/* Active Selected Square Frame */}
+                  <div className="relative aspect-square max-h-[420px] w-full mx-auto rounded-lg overflow-hidden border border-blue-500/50 bg-[#02050e] flex items-center justify-center p-2">
                     <img 
                       src={SOCIAL_GRID_PHOTOS[activeGalleryPhotoIndex].src} 
                       alt={SOCIAL_GRID_PHOTOS[activeGalleryPhotoIndex].title}
                       className="w-full h-full object-contain"
                     />
-                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4 flex items-center justify-between">
+                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent p-4 flex items-center justify-between">
                       <div>
                         <div className="text-xs font-mono text-blue-400">FRAME 0{activeGalleryPhotoIndex + 1}</div>
                         <div className="text-sm font-bold text-white">{SOCIAL_GRID_PHOTOS[activeGalleryPhotoIndex].title}</div>
@@ -272,12 +271,12 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                   </div>
                 </div>
               ) : (
-                /* Regular Single Media Box */
-                <div className="rounded-lg overflow-hidden border border-blue-950 aspect-[16/9] max-h-96 w-full bg-black">
+                /* Uncropped Square Display for Single Media (Food / Rawabi) */
+                <div className="rounded-lg overflow-hidden border border-blue-950 aspect-square max-h-[450px] w-full mx-auto bg-[#02050e] flex items-center justify-center p-3 shadow-inner">
                   <img 
                     src={getProjectImage(selectedProject)} 
                     alt={selectedProject.title} 
-                    className="w-full h-full object-cover" 
+                    className="w-full h-full object-contain" 
                   />
                 </div>
               )}
@@ -292,7 +291,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                 </p>
               </div>
 
-              {/* Website link if applicable */}
+              {/* Official Client Website Link */}
               {selectedProject.websiteUrl && (
                 <div className="p-4 rounded-lg bg-blue-950/30 border border-blue-500/40 flex items-center justify-between">
                   <div>
