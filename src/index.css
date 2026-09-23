@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Poppins', 'Cairo', sans-serif;
+  --font-sans: 'Poppins', 'Cairo', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: 'Poppins', 'Cairo', sans-serif;
+    background: #02050e;
+    color: #f1f5f9;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Poppins', 'Cairo', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom interactive blue glow outline styles */
+.blue-glow-hover {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.blue-glow-hover:hover {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.4), inset 0 0 12px rgba(59, 130, 246, 0.12) !important;
+}
+
+.blue-glow-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blue-glow-card:hover {
+  border-color: rgba(59, 130, 246, 0.85) !important;
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.45), 0 10px 25px -5px rgba(2, 6, 23, 0.8) !important;
+  transform: translateY(-2px);
+}
+
+.blue-glow-focus:focus-within, .blue-glow-focus:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.45) !important;
+  outline: none;
+}
+
+/* Custom scrollbar with deep blue accents */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
