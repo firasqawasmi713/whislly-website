@@ -138,7 +138,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 className="blue-glow-card group p-8 rounded-xl bg-[#04091a]/75 border border-slate-800/90 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.35)] transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
                 <div>
-                  {/* Top metadata line: Serial number */}
+                  {/* Top metadata line */}
                   <div className="flex items-center justify-between mb-5">
                     <span className="text-xs font-mono text-blue-400 font-bold tracking-wider">
                       {service.number} // {service.id.toUpperCase()}
@@ -148,15 +148,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     </span>
                   </div>
 
-                  {/* Optional Service Preview Banner */}
+                  {/* Square Aspect Ratio Container (Zero Crop) */}
                   {service.imageSrc && (
-                    <div className="w-full h-44 rounded-lg overflow-hidden mb-5 border border-blue-950/60 relative">
+                    <div className="w-full aspect-square max-h-80 mx-auto rounded-lg overflow-hidden mb-6 border border-blue-950/60 bg-[#02050e] flex items-center justify-center p-2 relative group-hover:border-blue-500/40 transition-colors">
                       <img 
                         src={service.imageSrc} 
                         alt={service.name} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                        className="w-full h-full object-contain rounded-md transition-transform duration-500 group-hover:scale-105" 
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#04091a] via-transparent to-transparent opacity-80" />
                     </div>
                   )}
 
