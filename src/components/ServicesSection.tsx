@@ -89,7 +89,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       number: '04',
       name: t.services.items.socialMedia.name,
       shortDesc: t.services.items.socialMedia.desc,
-      imageSrc: '/09.png',
+      imageSrc: '/09.jpg',
       deliverablesTitle: t.services.items.socialMedia.deliverablesTitle,
       impactMetric: t.services.items.socialMedia.impact,
       deliverables: isRtl
