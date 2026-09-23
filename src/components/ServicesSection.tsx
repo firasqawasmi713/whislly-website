@@ -41,7 +41,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       number: '02',
       name: t.services.items.uiux.name,
       shortDesc: t.services.items.uiux.desc,
-      imageSrc: null,
+      imageSrc: '/wisco.png',
       deliverablesTitle: t.services.items.uiux.deliverablesTitle,
       impactMetric: t.services.items.uiux.impact,
       deliverables: isRtl
