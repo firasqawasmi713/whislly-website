@@ -10,17 +10,17 @@ interface PortfolioShowcaseProps {
   onRequestSimilarProject: (projectName: string) => void;
 }
 
-// 9-Photo Social Media Grid Images mapping exactly to your filenames
+// 9-Photo Social Media Grid Images mapped to exact .jpg filenames
 const SOCIAL_GRID_PHOTOS = [
-  { id: '1', src: '/01.png', title: 'Signature Drop', tag: 'Reels Hook' },
-  { id: '2', src: '/02.png', title: 'Macro Detail', tag: 'Visual Texture' },
-  { id: '3', src: '/04.png', title: 'Cinematic Prep', tag: 'Motion Still' },
-  { id: '4', src: '/05.png', title: 'Hero Centerpiece', tag: 'Grid Anchor' },
-  { id: '5', src: '/06.png', title: 'Atmosphere', tag: 'Brand Story' },
-  { id: '6', src: '/07.png', title: 'Packaging Detail', tag: 'Unboxing' },
-  { id: '7', src: '/08.png', title: 'Action Capture', tag: 'High-Speed' },
-  { id: '8', src: '/09.png', title: 'Golden Hour', tag: 'Mood Lighting' },
-  { id: '9', src: '/010.png', title: 'Final Showcase', tag: 'Grid Outro' },
+  { id: '1', src: '/01.jpg', title: 'Signature Drop', tag: 'Reels Hook' },
+  { id: '2', src: '/02.jpg', title: 'Macro Detail', tag: 'Visual Texture' },
+  { id: '3', src: '/04.jpg', title: 'Cinematic Prep', tag: 'Motion Still' },
+  { id: '4', src: '/05.jpg', title: 'Hero Centerpiece', tag: 'Grid Anchor' },
+  { id: '5', src: '/06.jpg', title: 'Atmosphere', tag: 'Brand Story' },
+  { id: '6', src: '/07.jpg', title: 'Packaging Detail', tag: 'Unboxing' },
+  { id: '7', src: '/08.jpg', title: 'Action Capture', tag: 'High-Speed' },
+  { id: '8', src: '/09.jpg', title: 'Golden Hour', tag: 'Mood Lighting' },
+  { id: '9', src: '/010.jpg', title: 'Final Showcase', tag: 'Grid Outro' },
 ];
 
 export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
@@ -55,7 +55,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
       return '/rawabi.png';
     }
     if (item.category === 'Social Media' || item.id.includes('crust')) {
-      return '/09.png';
+      return '/09.jpg';
     }
     return ASSET_PLACEHOLDERS[item.assetKey] || '/wisco.png';
   };
@@ -135,7 +135,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                             <img 
                               src={photo.src} 
                               alt={photo.title} 
-                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
                             />
                             <div className="absolute top-1 left-1 bg-black/75 px-1 py-0.5 rounded text-[8px] font-mono text-blue-300">
                               0{pIdx + 1}
@@ -149,7 +149,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                       <img 
                         src={realImagePath} 
                         alt={item.title} 
-                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" 
                       />
                     </div>
                   )}
