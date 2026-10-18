@@ -14,7 +14,7 @@ import { InquiryModal } from './components/InquiryModal.tsx';
 // Thin white line divider centered in the middle of the page
 const SectionDivider: React.FC = () => (
   <div className="flex justify-center items-center py-2 relative z-10" aria-hidden="true">
-    <div className="w-11/12 max-w-5xl h-[1px] bg-white/20" />
+    <div className="w-11/12 max-w-5xl h-[1px] bg-white/10" />
   </div>
 );
 
@@ -60,35 +60,31 @@ function MainApp() {
   return (
     <div
       dir={dir}
-      className={`min-h-screen bg-gradient-to-b from-[#02050e] via-[#060e22] via-[#091536] to-[#02050e] text-slate-100 flex flex-col selection:bg-blue-600 selection:text-white relative ${
-        isRtl ? 'font-arabic' : 'font-sans'
+      className={`min-h-screen bg-[#050505] text-white flex flex-col selection:bg-[#C6FF00] selection:text-black relative ${
+        isRtl ? 'font-arabic' : "font-['Space_Grotesk',sans-serif]"
       }`}
     >
-      {/* Deep blue atmospheric ambient glow in background */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-gradient-to-b from-blue-600/20 via-blue-900/15 to-transparent blur-[140px]" />
-        <div className="absolute top-[35%] right-[-10%] w-[650px] h-[650px] bg-blue-700/15 blur-[150px]" />
-        <div className="absolute bottom-[20%] left-[-10%] w-[700px] h-[700px] bg-indigo-900/15 blur-[160px]" />
-      </div>
+      {/* Background Grid Accent */}
+      <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0"></div>
 
       {/* Navigation Bar */}
       <div className="relative z-50">
         <Navbar onOpenInquiryModal={() => handleOpenModalWithService()} />
       </div>
 
-      {/* Main Content Sections with Centered Thin White Line Dividers */}
+      {/* Main Content Sections */}
       <main className="flex-1 relative z-10">
         {/* 1. Hero Header */}
         <Hero onOpenInquiryModal={() => handleOpenModalWithService()} />
 
         <SectionDivider />
 
-        {/* 2. Core Services (Food Photography & Design, UI/UX SaaS, Branding, Social Media) */}
+        {/* 2. Core Services */}
         <ServicesSection onSelectServiceForInquiry={handleSelectServiceForInquiry} />
 
         <SectionDivider />
 
-        {/* 3. Media & Portfolio Showcase (Ghaith & Asmar, Wisco, Rawabi Butchery, Crust Burgers 9-photo) */}
+        {/* 3. Media & Portfolio Showcase */}
         <PortfolioShowcase
           onRequestSimilarProject={(projectName) =>
             handleSelectServiceForInquiry(`Project inspired by ${projectName}`)
@@ -102,7 +98,7 @@ function MainApp() {
 
         <SectionDivider />
 
-        {/* Interactive Project Scope Estimator (JD Currency) */}
+        {/* Interactive Project Scope Estimator */}
         <InteractiveScopeEstimator
           onTransferToForm={handleTransferEstimatorToForm}
         />
@@ -114,7 +110,7 @@ function MainApp() {
 
         <SectionDivider />
 
-        {/* 5. Contact Section with Inquiry Form, Clickable Phone & Email (JD Currency) */}
+        {/* 5. Contact Section */}
         <ContactSection
           initialService={inquiryTargetService}
           initialEstimatorData={estimatorData}
